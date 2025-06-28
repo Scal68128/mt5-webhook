@@ -5,10 +5,13 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    print("Webhook déclenché")
+    sys.stdout.flush()
+
     if request.is_json:
         data = request.get_json()
         print("Signal reçu :", data)
-        sys.stdout.flush()  # 👈 force l'affichage dans les logs Render
+        sys.stdout.flush()
         return jsonify({"status": "ok"}), 200
     else:
         print("⚠️ Requête non-JSON reçue")

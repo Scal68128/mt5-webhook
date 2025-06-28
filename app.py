@@ -4,7 +4,7 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.json
-    print(data)  # Pour debug
+    print("Signal reçu :", data)  # Affiche le contenu dans les logs
     return 'OK'
 
 if __name__ == '__main__':
